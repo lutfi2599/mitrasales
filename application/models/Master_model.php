@@ -23,6 +23,15 @@ class Master_model extends MY_Model
         return $query->result_array();
     }
 
+    public function getUserPoint($idUser)
+    {
+        $this->db->select('id, total_point');
+        $this->db->from('db_user');
+        $this->db->where('id', $idUser);
+        // $query = $this->db->update('db_user', $data, array('id' => $idUser));
+        return $this->db->get()->result_array();
+    }
+
     public function addData($table, $data)
     {
         $this->db->insert($table, $data);

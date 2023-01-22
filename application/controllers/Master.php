@@ -91,6 +91,36 @@ class Master extends MY_Controller
         $this->load->view('/', $this->page_data);
     }
 
+    public function addReedem()
+    {
+
+        $userId = logged('id');
+        $getUserPoint = $this->master->getUserPoint($userId);
+        //angka '6500' disesuaikan atau dibikin ambil data dari data list yang dipilih user di frontend
+        //misalnya di frontend user pilih reendem produk 2 dengan total point 2400, berarti tinggal disesuaikan lemparan datanya
+        $totalPoint = array('total_point' => $getUserPoint[0]['total_point'] - 6500);
+        $data = array(
+            'id_user' => logged('id'),
+            'id_reward' => 1,
+            'point' => 6500,
+            'create_at' => time(),
+            'update_at' => null
+        );
+
+        //id ini diisi dari hasil lemparan data dari FE sesuai produk reedem yg dipilih
+        $id = 1;
+
+        $this->master->addData('db_reedem', $data);
+        $this->master->updateData('db_user', $totalPoint, $userId);
+
+        $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang'.$id.'');
+
+        $this->session->set_flashdata('alert-type', 'success');
+        $this->session->set_flashdata('alert', 'Selamat! anda berhasil meng reedem point dengan hadiah');
+
+        redirect('/');
+    }
+
     /* ---------------END OF Reedem Point----------------- */
 }
 
