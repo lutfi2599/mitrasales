@@ -9,7 +9,7 @@ class Master extends MY_Controller
         parent::__construct();
         $this->page_data['page']->title = 'Master Management';
         $this->page_data['page']->menu = 'master';
-        $this->load->model('Master_model', 'master');;
+        $this->load->model('Master_model', 'master');
     }
 
     public function index()
