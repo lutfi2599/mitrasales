@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Users_model extends MY_Model {
 	
 
-	public $table = 'users';
+	public $table = 'db_user';
 
 	public function attempt($data)
 	{
@@ -102,32 +102,36 @@ class Users_model extends MY_Model {
 			return 'invalid';
 		}
 
-		$reset_token	=	password_hash((time().$user->id), PASSWORD_BCRYPT);
+		// $reset_token	=	password_hash((time().$user->id), PASSWORD_BCRYPT);
 
-		$this->db->where('id', $user->id);
-		$this->db->update($this->table, compact('reset_token'));
+		// $this->db->where('id', $user->id);
+		// $this->db->update($this->table, 'Yes');
+		$data = ([
+			'forgot_password' => 'Yes'
+		]);
+		$this->db->update('db_user', $data, array('id' => $user->id));
 
-		$this->email->from(setting('company_email'), setting('company_name') );
-		$this->email->to($user->email);
+		// $this->email->from(setting('company_email'), setting('company_name') );
+		// $this->email->to($user->email);
 
-		$this->email->subject('Reset Your Account Password | ' . setting('company_name') );
+		// $this->email->subject('Reset Your Account Password | ' . setting('company_name') );
 
-		$reset_link = url('login/new_password?token='.$reset_token);
+		// $reset_link = url('login/new_password?token='.$reset_token);
 
-		$data = getEmailShortCodes();
-		$data['user_id'] = $user->id;
-		$data['user_name'] = $user->name;
-		$data['user_email'] = $user->email;
-		$data['user_username'] = $user->username;
-		$data['reset_link'] = $reset_link;
+		// $data = getEmailShortCodes();
+		// $data['user_id'] = $user->id;
+		// $data['user_name'] = $user->name;
+		// $data['user_email'] = $user->email;
+		// $data['user_username'] = $user->username;
+		// $data['reset_link'] = $reset_link;
 
-		$html = $this->parser->parse('templates/email/reset', $data, true);
+		// $html = $this->parser->parse('templates/email/reset', $data, true);
 
-		$this->email->message( $html );
+		// $this->email->message( $html );
 
-		$this->email->send();
+		// $this->email->send();
 
-		return $user->email;
+		// return $user->email;
 
 	}
 
@@ -145,6 +149,11 @@ class Users_model extends MY_Model {
 
 	public function whereClauseArray(){
 		return NULL;
+	}
+
+	public function regisUser($data)
+	{
+		$this->db->insert('db_user', $data);
 	}
 
 }

@@ -135,9 +135,9 @@ $autoload['language'] = array( 'basic' );
 $autoload['model'] = array(
 	'users_model',
 	'settings_model',
-	'role_permissions_model',
-	'permissions_model',
-	'roles_model',
+	// 'role_permissions_model',
+	// 'permissions_model',
+	// 'roles_model',
 	'activity_model',
-	'templates_model',
+	// 'templates_model',
 );

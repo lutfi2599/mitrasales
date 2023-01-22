@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Registration extends CI_Controller {
 
 	public $data;
 
@@ -29,6 +29,35 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('account/login', $this->data, FALSE);
+	}
+
+    public function saveRegis()
+	{
+		// ifPermissions('users_add');
+		// postAllowed();
+
+		$id = ([
+			'username' => 'nanas25',
+			'password' => hash( "sha256", '12345678' ),
+			'nama_lengkap' => 'piyo nanas',
+			'alamat' => 'nusakembangan',
+			'hp' => '081340728899',
+			'email' => 'nenas@gmail.com',
+			'kendaraan' => 'fortuner',
+			'salesman' => 'ari',
+			'total_point' => 0,
+			'status' => 0,
+			'created_at' => time(),
+		]);
+
+        $this->users_model->regisUser($id);
+
+
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil Daftar');
+		
+		redirect('login');
+
 	}
 
 
@@ -155,7 +184,7 @@ class Login extends CI_Controller {
 
 		$reset = $this->users_model->resetPassword( [ 'username' => post('username') ] );
 
-		$this->data['message']	=	'Reset Password telah berhasil dikirim ke bagian admin, mohon ditunggu kami akan menghubungi anda!';
+		$this->data['message']	=	'Reset Link Sent to <a href="#">'.obfuscate_email($reset).'</a> ! Please check your email';
 		$this->data['message_type']	=	'info';
 
 		if($reset==='invalid'){

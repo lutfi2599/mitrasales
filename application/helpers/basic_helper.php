@@ -423,13 +423,22 @@ if (!function_exists('hasPermissions')) {
 
 		$CI =& get_instance();
 
-		if ( !empty( $CI->role_permissions_model->getByWhere([ 'role' => logged('role'), 'permission' => $code ]) ) ) {
+		// if ( !empty( $CI->role_permissions_model->getByWhere([ 'role' => logged('role'), 'permission' => $code ]) ) ) {
 
-			return true;
+		// 	return true;
 			
-		}
+		// }
 
-		return false;
+		return true;
+		// $CI =& get_instance();
+
+		// if ( !empty( $CI->role_permissions_model->getByWhere([ 'role' => logged('role'), 'permission' => $code ]) ) ) {
+
+		// 	return true;
+			
+		// }
+
+		// return false;
 
 	}
 
