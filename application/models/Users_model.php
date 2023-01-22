@@ -156,6 +156,19 @@ class Users_model extends MY_Model {
 		$this->db->insert('db_user', $data);
 	}
 
+	public function updateData($table, $data, $id)
+    {
+        $this->db->update($table, $data, array('id' => $id));
+    }
+
+	public function getUserData($idUser)
+    {
+        $this->db->select('*');
+        $this->db->from('db_user');
+        $this->db->where('id', $idUser);
+        return $this->db->get()->result_array();
+    }
+
 }
 
 /* End of file Users_model.php */
