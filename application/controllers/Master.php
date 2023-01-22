@@ -14,11 +14,18 @@ class Master extends MY_Controller
 
     public function index()
     {
-        $this->page_data['prospects'] = $this->users_model->get('db_prospect');
-        $this->load->view('/', $this->page_data);
+        // $this->page_data['prospects'] = $this->users_model->get('db_prospect');
+        // $this->load->view('/', $this->page_data);
+        redirect('/');
     }
 
     /* ---------------START OF PROSES UNTUK HALAMAN PROSPECT----------------- */
+    public function viewProspect()
+    {
+        $this->page_data['prospects'] = $this->master->getAllData('db_prospect');
+        $this->load->view('/', $this->page_data);
+    }
+
     public function addProspect()
     {
 

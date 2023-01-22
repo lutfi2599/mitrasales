@@ -11,7 +11,7 @@ class Master_model extends MY_Model
         parent::__construct();
     }
 
-    public function getAllData()
+    public function getAllData($table)
     {
         $query = $this->db->get($table);
         return $query->result_array();
