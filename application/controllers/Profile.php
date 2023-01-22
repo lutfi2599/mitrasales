@@ -36,7 +36,7 @@ class Profile extends MY_Controller {
 
 		$id = $this->users_model->update($id, $data);
 
-		$this->activity_model->add("User #$id updated the profile");
+		// $this->activity_model->add("User #$id updated the profile");
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Profile has been Updated Successfully');
@@ -77,7 +77,7 @@ class Profile extends MY_Controller {
 
 		$id = $this->users_model->update($id, $data);
 
-		$this->activity_model->add("User #$id changed the password !");
+		// $this->activity_model->add("User #$id changed the password !");
 
 		$this->session->set_flashdata('message_type', 'success');
 		$this->session->set_flashdata('message', 'Password Changed, You need to Login Again !');
@@ -104,7 +104,7 @@ class Profile extends MY_Controller {
 				$this->users_model->update($id, ['img_type' => $ext]);
 			}
 
-			$this->activity_model->add("User #$id Updated his/her Profile Image.");
+			// $this->activity_model->add("User #$id Updated his/her Profile Image.");
 
 			$this->session->set_flashdata('alert-type', 'success');
 			$this->session->set_flashdata('alert', 'Profile Image has been Updated Successfully');

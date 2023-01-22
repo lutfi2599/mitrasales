@@ -74,7 +74,7 @@ class Users_model extends MY_Model {
 			'last_login' => date('Y-m-d H:m:i')
 		]);
 
-		$this->activity_model->add($row->name.' ('.$row->username.') Logged in', $row->id);
+		// $this->activity_model->add($row->name.' ('.$row->username.') Logged in', $row->id);
 
 	}
 

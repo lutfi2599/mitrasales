@@ -40,7 +40,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Settings has been Updated Successfully');
 
-		$this->activity_model->add("Company Settings Updated by User: #".logged('id'));
+		// $this->activity_model->add("Company Settings Updated by User: #".logged('id'));
 		
 		redirect('settings/general');
 	}
@@ -65,7 +65,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Settings has been Updated Successfully');
 
-		$this->activity_model->add("Company Settings Updated by User: #".logged('id'));
+		// $this->activity_model->add("Company Settings Updated by User: #".logged('id'));
 		
 		redirect('settings/company');
 	}
@@ -99,7 +99,7 @@ class Settings extends MY_Controller {
 				$this->settings_model->updateByKey('bg_img_type', $ext);
 			}
 
-			$this->activity_model->add("User #$id Updated his/her Profile Image.");
+			// $this->activity_model->add("User #$id Updated his/her Profile Image.");
 
 			$this->session->set_flashdata('alert-type', 'success');
 			$this->session->set_flashdata('alert', 'Profile Image has been Updated Successfully');
@@ -115,7 +115,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Settings has been Updated Successfully');
 
-		$this->activity_model->add("Login Theme Updated by User: #".logged('id'));
+		// $this->activity_model->add("Login Theme Updated by User: #".logged('id'));
 		
 		redirect('settings/login_theme');
 	}
@@ -153,7 +153,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Email Template has been Updated Successfully');
 
-		$this->activity_model->add("Email Template Updated by User: #".logged('id'));
+		// $this->activity_model->add("Email Template Updated by User: #".logged('id'));
 		
 		redirect('settings/email_templates');
 	}
