@@ -16,16 +16,35 @@ class Master extends MY_Controller
     {
         // $this->page_data['prospects'] = $this->users_model->get('db_prospect');
         // $this->load->view('/', $this->page_data);
-        redirect('tampilan/prospectlist ');
+        redirect('master/viewProspect');
     }
 
     /* ---------------START OF PROSES UNTUK HALAMAN PROSPECT----------------- */
     public function viewProspect()
     {
-        // $this->page_data['prospects'] = $this->master->getAllData('db_prospect');
-        // $this->load->view('', $this->page_data);
-        $db = $this->master->getAllData('db_prospect');
-        // print_r($db);
+        $this->page_data['prospects'] = $this->master->getAllData('db_prospect');
+
+        $this->load->view('templates/header');
+        $this->load->view('tampilan/listProspect', $this->page_data);
+        $this->load->view('templates/footer');
+    }
+
+    public function viewAddPros()
+    {
+        $this->page_data['prospects'] = $this->master->getAllData('db_prospect');
+
+        $this->load->view('templates/header');
+        $this->load->view('tampilan/input', $this->page_data);
+        $this->load->view('templates/footer');
+    }
+
+    public function viewEditPros($id)
+    {
+        $this->page_data['user'] = $this->master->getUser($id);
+
+        $this->load->view('templates/header');
+        $this->load->view('tampilan/edit_pros', $this->page_data);
+        $this->load->view('templates/footer');
     }
 
     public function addProspect()
@@ -49,7 +68,7 @@ class Master extends MY_Controller
         $this->session->set_flashdata('alert-type', 'success');
         $this->session->set_flashdata('alert', 'Anda berhasil membuat prospect baru');
 
-        redirect('/');
+        redirect('master/viewProspect');
     }
 
     public function editProspect($id)
@@ -96,8 +115,13 @@ class Master extends MY_Controller
 
     public function rewardList()
     {
+        $idUser = logged('id');
         $this->page_data['rewards'] = $this->master->getRewardList();
-        $this->load->view('/', $this->page_data);
+        $this->page_data['userPoint'] = $this->master->getUserPoint($idUser);
+
+        $this->load->view('templates/header');
+        $this->load->view('tampilan/reedempoint', $this->page_data);
+        $this->load->view('templates/footer');
     }
 
     public function addReedem()
@@ -105,37 +129,37 @@ class Master extends MY_Controller
 
         $userId = logged('id');
         $getUserPoint = $this->master->getUserPoint($userId);
+        $getItemPoint = post('itemPoint');
+        $getItemName = post('itemName');
         //angka '6500' disesuaikan atau dibikin ambil data dari data list yang dipilih user di frontend
         //misalnya di frontend user pilih reendem produk 2 dengan total point 2400, berarti tinggal disesuaikan lemparan datanya
-        $totalPoint = array('total_point' => $getUserPoint[0]['total_point'] - 6500);
+        $totalPoint = array('total_point' => $getUserPoint[0]['total_point'] - $getItemPoint);
 
-        if () {
-            # code...
+        if ($getUserPoint[0]['total_point'] < $getItemPoint) {
+            $this->session->set_flashdata('alert-type', 'danger');
+            $this->session->set_flashdata('alert', 'Maaf! Point Anda Tidak Mencukupi');
+            redirect('master/rewardList', 'refresh');
+            return true;
+        } else {
+            
+            $data = array(
+                'id_user' => logged('id'),
+                'id_reward' => post('idItem'),
+                'point' => $getItemPoint,
+                'create_at' => time(),
+                'update_at' => null
+            );
+
+            $this->master->addData('db_reedem', $data);
+            $this->master->updateData('db_user', $totalPoint, $userId);
+
+            $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang ' . $getItemName . ' sebanyak ' . $getItemPoint);
+
             $this->session->set_flashdata('alert-type', 'success');
-        $this->session->set_flashdata('alert', 'Selamat! anda berhasil meng reedem point dengan hadiah');
-
+            $this->session->set_flashdata('alert', 'Selamat, anda berhasil menukarkan point anda!');
+            redirect('master/rewardList', 'refresh');
+            return true;
         }
-
-        $data = array(
-            'id_user' => logged('id'),
-            'id_reward' => 1,
-            'point' => 6500,
-            'create_at' => time(),
-            'update_at' => null
-        );
-
-        //id ini diisi dari hasil lemparan data dari FE sesuai produk reedem yg dipilih
-        $id = 1;
-
-        $this->master->addData('db_reedem', $data);
-        $this->master->updateData('db_user', $totalPoint, $userId);
-
-        $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang' . $id . '');
-
-        $this->session->set_flashdata('alert-type', 'success');
-        $this->session->set_flashdata('alert', 'Selamat! anda berhasil meng reedem point dengan hadiah');
-
-        redirect('/');
     }
 
     /* ---------------END OF Reedem Point----------------- */

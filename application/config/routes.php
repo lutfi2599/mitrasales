@@ -54,12 +54,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-// $route['signup-test'] = 'registration';
-// $route['forgotpassword'] = 'forgotPassword';
-// $route['reedempoint'] = 'reedempoint';
-// $route['home'] = 'master/addprospect';
-// $route['edit'] = 'edit';
-
 
 // [AdminLTE]
 // $route['adminlte/(:any)'] = 'adminlte/main/$1';

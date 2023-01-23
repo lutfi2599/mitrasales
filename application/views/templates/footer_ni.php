@@ -1,13 +1,13 @@
 <div class="container bg-dark mt-5">
          <div class="row">
             <div class="col-4 mt-4 mb-3 ms-4">
-               <a class="ps-3 pe-3 pt-2 pb-2" href="main"><img src="assets/img/images/home3.png" alt=""></a>
+               <a class="ps-3 pe-3 pt-2 pb-2" href="<?= url('/'); ?>"><img src="<?= base_url(); ?>assets/img/images/home3.png" alt=""></a>
             </div>
             <div class="col-4 mt-4 mb-3">
-               <a class="ps-3 pe-3 pt-2 pb-2" href="listprospect"><img src="assets/img/images/plus2.png" alt=""></a>
+               <a class="ps-3 pe-3 pt-2 pb-2" href="<?= url('master/viewProspect'); ?>"><img src="<?= base_url(); ?>assets/img/images/plus2.png" alt=""></a>
             </div>
             <div class="col-3 mt-4 mb-3">
-               <a class="ps-3 pe-3 pt-2 pb-2" href=""><img class="ms-3" src="assets/img/images/verified.png" alt=""></a>
+               <a class="ps-3 pe-3 pt-2 pb-2" href="<?= url('/'); ?>"><img class="ms-3" src="<?= base_url(); ?>assets/img/images/verified.png" alt=""></a>
             </div>
          </div>
       </div>

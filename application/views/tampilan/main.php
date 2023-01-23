@@ -1,7 +1,7 @@
 
 
   <div class="loader" id="loader">
-    <img id="loader-gif" src="assets/img/images/loader2.gif" alt="">
+    <img id="loader-gif" src="<?php echo base_url() ?>assets/img/images/loader2.gif" alt="">
   </div>
 
   <div class="container">
@@ -10,7 +10,7 @@
         <h3 class="prospect-title">Home</h3>
       </div>
       <div class="col-4 mt-3 ">
-        <a href="profileuser"><img src="assets/img/images/hasbulla2.jpg" alt="" class="user-picture mb-5"></a>
+        <a href=""><img src="<?php echo base_url() ?>assets/img/images/hasbulla2.jpg" alt="" class="user-picture mb-5"></a>
       </div>
     </div>
   </div>
@@ -23,19 +23,21 @@
         <a class="overview-button ps-3 pe-4 pt-2 pb-2">Overview</a>
       </div>
       <div class="col-6 ms-3">
-        <a href="reedempoint" class="reedem-button ps-3 pe-4 pt-2 pb-2">Reedem Point</a>
+        <a href="<?= url('master/rewardList') ?>" class="reedem-button ps-3 pe-4 pt-2 pb-2">Reedem Point</a>
       </div>
     </div>
   </div>
 
-  <a class="reedem-link" href="listprospect">
+  <a class="reedem-link" href="<?= url('master/viewProspect') ?>">
   <div class="total-point col-10 ms-4 mt-4 pb-5 pt-3">
     <h1 class="ms-3" style="color: white;">Total Point</h1>
     <p class="ms-3" style="color: white;">Tukarkan point mu dengan hadiah yang telah kami sediakan</p>
-    <h1 style="text-align: end;margin-right: 50px;color: white;">120</h1>
-    <div class="progress col-10 ms-4">
+    <!-- <div class="progress col-10 ms-4">
       <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
+    </div> -->
+    <span class="btn btn-success">
+      <h1 class="ms-3" style="color: white;"><?= $userPoint[0]['total_point'] ?> Point Tersedia</h1>
+    </span>
   </div>
 </a>
 
@@ -50,7 +52,7 @@
           <div class="row me-2">
             <div class="col-3">
               <div class="prospect-user-picture">
-                <img src="assets/img/images/user.png" alt="">
+                <img src="<?php echo base_url() ?>assets/img/images/user.png" alt="">
               </div>
             </div>
             <h5 class=" mb-3 col-5" style="color: white;">Prospect</h1>
@@ -68,7 +70,7 @@
           <div class="row">
             <div class="col-2">
               <div class="prospect-user-picture">
-                <img src="assets/img/images/stopwatch.png" alt="">
+                <img src="<?php echo base_url() ?>assets/img/images/stopwatch.png" alt="">
               </div>
             </div>
             <h5 class="ms-2 mb-3 col-2" style="color: white;">waiting</h1>
@@ -89,7 +91,7 @@
           <div class="row me-2">
             <div class="col-2">
               <div class="">
-                <img src="assets/img/images/remove.png" alt="">
+                <img src="<?php echo base_url() ?>assets/img/images/remove.png" alt="">
               </div>
             </div>
             <h5 class=" mb-3 col-5 ms-3" style="color: white;">Lost</h1>
@@ -107,7 +109,7 @@
           <div class="row">
             <div class="col-2">
               <div class="">
-                <img src="assets/img/images/check.png" alt="">
+                <img src="<?php echo base_url() ?>assets/img/images/check.png" alt="">
               </div>
             </div>
             <h5 class="ms-3 mb-3 col-2" style="color: white;">Deal</h1>

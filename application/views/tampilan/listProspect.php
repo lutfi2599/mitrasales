@@ -1,5 +1,3 @@
-
-
 <div class="loader" id="loader">
    <img id="loader-gif" src="assets/img/images/loader2.gif" alt="">
 </div>
@@ -10,13 +8,13 @@
    <div class="container">
       <div class="row">
          <div class="col-4 mt-4">
-            <a class="back-button ps-3 pe-3 pt-2 pb-2" href="main"><img src="assets/img/images/panah.png" alt=""></a>
+            <a class="back-button ps-3 pe-3 pt-2 pb-2" href="<?= url('/') ?>"><img src="<?php echo base_url() ?>assets/img/images/panah.png" alt=""></a>
          </div>
          <div class="col-4 mt-4">
             <p class="prospect-title">List Prospect</p>
          </div>
          <div class="col-4 mt-3">
-            <a href="profileuser"><img src="assets/img/images/hasbulla2.jpg" alt="" class="user-picture mb-5"></a>
+            <a href="profileuser"><img src="<?php echo base_url() ?>assets/img/images/hasbulla2.jpg" alt="" class="user-picture mb-5"></a>
          </div>
       </div>
    </div>
@@ -29,36 +27,13 @@
       </div>
       <!-- end of search -->
       <div class="col-6 mt-4 mb-2">
-         <a class="all-button ps-4 pe-4 pt-2 pb-2" href="input">New Prospect</a>
+         <a class="all-button ps-4 pe-4 pt-2 pb-2" href="<?= url('master/viewAddPros') ?>">New Prospect</a>
       </div>
-     
-   
-      <div class="col-10 mt-3 prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-2">darwin Nunez</p>
-         </a>
-      </div>
-      <div class="col-10 mt-3 prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-2">Darwin Nunez</p>
-         </a>
-      </div>
-      <div class="col-10 mt-3 red-prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-3">Kim Jong Un</p>
-         </a>
-      </div>
-      <div class="col-10 mt-3 yellow-prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-3">JokoChad</p>
-         </a>
-      </div>
-    
 
-
-
-
-
-
-
-     
+      <?php foreach ($prospects as $row) : ?>
+         <div class="col-10 mt-3 prospect-person">
+            <a href="<?php echo url('master/viewEditPros/' . $row['id']) ?>" class="prospect-person">
+               <p class="ps-5 pb-2" style="font-size: 24px;"><?= $row['nama_customer'] ?></p>
+            </a>
+         </div>
+      <?php endforeach ?>

@@ -7,6 +7,11 @@ class Dashboard extends MY_Controller
    
     public function index()
     {
+        $this->load->model('Master_model', 'master');
+
+        $userId = logged('id');
+        $this->page_data['userPoint'] = $this->master->getUserPoint($userId);
+
         $this->load->view('templates/header');
         $this->load->view('tampilan/main', $this->page_data);
         $this->load->view('templates/footer');

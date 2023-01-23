@@ -32,6 +32,14 @@ class Master_model extends MY_Model
         return $this->db->get()->result_array();
     }
 
+    public function getUser($idUser)
+    {
+        $this->db->select('*');
+        $this->db->from('db_prospect');
+        $this->db->where('id', $idUser);
+        return $this->db->get()->result_array();
+    }
+
     public function addData($table, $data)
     {
         $this->db->insert($table, $data);
