@@ -1,13 +1,13 @@
 
 
-   <div class="loader" id="loader">
+   <!-- <div class="loader" id="loader">
       <img id="loader-gif" src="assets/img/images/loader2.gif" alt="">
-   </div>
+   </div> -->
 
    <div class="container">
       <div class="row">
          <div class="col-4 mt-4">
-            <a class="back-button ps-3 pe-3 pt-2 pb-2" href="#"><img src="assets/img/images/panah.png" alt=""></a>
+            <a class="back-button ps-3 pe-3 pt-2 pb-2" href="listprospect"><img src="assets/img/images/panah.png" alt=""></a>
          </div>
          <div class="col-4 mt-4">
             <p class="input-title">Input Referensi Prospect</p>
@@ -20,22 +20,24 @@
    <!-- end of heading -->
 
    <!-- search -->
+   <?php echo form_open('/master/addprospect', ['method' => 'POST', 'autocomplete' => 'off']); ?> 
    <div class="input-group mt-4">
       <div class="form-outline col-11" style="padding-left: 8%;">
-         <input type="input" id="form1" class="form-control search form-control-lg" placeholder="Nama Customer" />
+         <input type="input" id="form1" class="form-control search form-control-lg" placeholder="Nama Customer" name="nama_customer"/>
       </div>
       <div class="input-group mt-5">
          <div class="form-outline col-11" style="padding-left: 8%;">
-            <input type="input" id="form1" class="form-control search form-control-lg" placeholder="No Hp" />
+            <input type="input" id="form1" class="form-control search form-control-lg" placeholder="No Hp" name="telepon"/>
          </div>
          <div class="input-group mt-5">
             <div class="form-outline col-11" style="padding-left: 8%;">
-               <input type="input" id="form1" class="form-control search form-control-lg" placeholder="Alamat" />
+               <input type="input" id="form1" class="form-control search form-control-lg" placeholder="Alamat" name="alamat"/>
             </div>
             <div class="input-group mt-5">
                <div class="form-outline col-11" style="padding-left: 8%;">
-                  <input type="input" id="form1" class="form-control search form-control-lg" placeholder="Mobil yang diminati" />
+                  <input type="input" id="form1" class="form-control search form-control-lg" placeholder="Mobil yang diminati" name="mobil"/>
                </div>
+
 
 
                <!-- end of search -->
@@ -49,19 +51,8 @@
                   </div>
                </div>
 
+               <?php echo form_close(); ?>
 
 
-               <div class="container footer-app">
-                  <div class="row">
-                     <div class="col-4 mt-4 mb-3 ms-4">
-                        <a class="ps-3 pe-3 pt-2 pb-2" href="#"><img src="assets/img/images/home3.png" alt=""></a>
-                     </div>
-                     <div class="col-4 mt-4 mb-3">
-                        <a class="ps-3 pe-3 pt-2 pb-2" href="#"><img src="assets/img/images/plus2.png" alt=""></a>
-                     </div>
-                     <div class="col-3 mt-4 mb-3">
-                        <a class="ps-3 pe-3 pt-2 pb-2" href=""><img src="assets/img/images/verified.png" alt=""></a>
-                     </div>
-                  </div>
-               </div>
+           
 

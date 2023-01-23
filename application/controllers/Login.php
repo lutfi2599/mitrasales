@@ -16,9 +16,9 @@ class Login extends CI_Controller {
 			die('Database is not configured');
 		}
 
-		// if(is_logged()){
-		// 	redirect('main','refresh');
-		// }
+		if(is_logged()){
+			redirect('dashboard','refresh');
+		}
 
 		$this->data = [
 			'assets' => assets_url(),
@@ -29,7 +29,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		// $this->load->view('tampilan/', $this->data, FALSE);
+		$this->load->view('tampilan/login', $this->data, FALSE);
 	}
 
 
@@ -45,13 +45,12 @@ class Login extends CI_Controller {
         	$this->form_validation->set_rules('g-recaptcha-response', 'Google Recaptcha', 'callback_validate_recaptcha');
 
         if ($this->form_validation->run() == FALSE)
-        {   $this->load->view('templates/header');
-            $this->load->view('tampilan/signin');
-            $this->load->view('templates/footer');
-        } else {
-			redirect('main');
+        {  
+           $this->index();
+           return;
 		}
-
+		
+		
         $username = post('username');
         $password = post('password');
 
@@ -93,7 +92,7 @@ class Login extends CI_Controller {
 
         }
 
-        redirect('main','refresh');
+        redirect('/','refresh');
 
 	}
 
@@ -139,7 +138,7 @@ class Login extends CI_Controller {
 
 	public function forget()
 	{
-		$this->load->view('account/forget', $this->data, FALSE);
+		$this->load->view('tampilan/forgotpassword', $this->data, FALSE);
 	}
 
 	public function reset_password()

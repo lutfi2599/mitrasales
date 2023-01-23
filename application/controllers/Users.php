@@ -105,11 +105,11 @@ class Users extends MY_Controller {
 
 		$data = [
 			'role' => post('role'),
-			'name' => post('name'),
-			'username' => post('username'),
+			'name' => post('nama'),
+			'username' => post('sales'),
 			'email' => post('email'),
-			'phone' => post('phone'),
-			'address' => post('address'),
+			'phone' => post('telepon'),
+			'address' => post('mobil'),
 		];
 
 		$password = post('password');
@@ -142,7 +142,7 @@ class Users extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Client Profile has been Updated Successfully');
 		
-		redirect('users');
+		redirect('profiluser');
 
 	}
 

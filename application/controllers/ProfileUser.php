@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ProfileUser extends CI_Controller
 {
@@ -6,6 +7,6 @@ class ProfileUser extends CI_Controller
     {
         $this->load->view('templates/header');
         $this->load->view('tampilan/profileUser');
-        $this->load->view('templates/footer_ni');
+        $this->load->view('templates/footer_login');
     }
 }

@@ -41,14 +41,14 @@ class Registration extends CI_Controller
 		// postAllowed();
 
 		$id = ([
-			'username' => 'rafael',
-			'password' => $this->load->post('password'),
-			'nama_lengkap' => $this->load->post('nama'),
-			'alamat' => $this->load->post('alamat'),
-			'hp' => $this->load->post('telepon'),
-			'email' => $this->load->post('email'),
-			'kendaraan' => $this->load->post('mobil'),
-			'salesman' => $this->load->post('sales'),
+			'username' => post('username'),
+			'password' => hash( "sha256", post('password') ),
+			'nama_lengkap' => post('nama'),
+			'alamat' => post('alamat'),
+			'hp' => post('telepon'),
+			'email' => post('email'),
+			'kendaraan' => post('mobil'),
+			'salesman' => post('sales'),
 			'total_point' => 0,
 			'status' => 0,
 			'created_at' => time(),
@@ -60,7 +60,7 @@ class Registration extends CI_Controller
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Berhasil Daftar');
 
-		redirect('view/home');
+		redirect('signup-test');
 	}
 
 
@@ -166,7 +166,7 @@ class Registration extends CI_Controller
 
 	public function forget()
 	{
-		$this->load->view('account/forget', $this->data, FALSE);
+		$this->load->view('tampilam/forgotpassword', $this->data, FALSE);
 	}
 
 	public function reset_password()
@@ -238,6 +238,8 @@ class Registration extends CI_Controller
 
 		$this->session->set_flashdata('message', 'New Password has been Updated, You can login now');
 		$this->session->set_flashdata('message_type', 'success');
+		$flash_message = $this->session->flashdata('message');
+		echo $flash_message;
 		redirect('login', 'refresh');
 	}
 }

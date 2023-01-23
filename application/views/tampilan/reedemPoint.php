@@ -20,7 +20,7 @@
    <div class="container">
       <div class="row">
          <div class="col-4 mt-4">
-            <a class="back-button ps-3 pe-3 pt-2 pb-2" href="#"><img src="assets/img/images/panah.png" alt=""></a>
+            <a class="back-button ps-3 pe-3 pt-2 pb-2" href="main"><img src="assets/img/images/panah.png" alt=""></a>
          </div>
          <div class="col-4 mt-4">
             <p class="prospect-title">Reedem Point</p>
@@ -31,9 +31,14 @@
       </div>
    </div>
 
+
+
+   <?php echo form_open('/master/rewardlist', ['method' => 'GET', 'autocomplete' => 'off']); ?> 
    <div class="col-4">
-      <p class="all-button ps-3 pe-4 pt-2 pb-2">Point:<?php echo $userId ?></p>
+      <p class="all-button ps-3 pe-4 pt-2 pb-2">Point:120</p>
    </div>
+
+
    <div class="col-10 mt-2 reedem-item" onclick="hide()">
       <div class="container">
          <div class="row">
@@ -41,7 +46,7 @@
                <img src="assets/img/images/iphone.jpg" alt="" class="reedem-picture mt-3">
             </div>
             <div class="col-2">
-               <p class="ps-5 pb-2 mt-4">Iphone</p>
+               <p class="ps-5 pb-2 mt-4"><?php  ?></p>
             </div>
          </div>
       </div>
@@ -83,19 +88,7 @@
       </div>
    </div>
 
-   <div class="container footer-app">
-      <div class="row">
-         <div class="col-4 mt-4 ms-4 mb-3">
-            <a class="ps-3 pe-3 pt-2 pb-2" href="#"><img src="assets/img/images/home3.png" alt=""></a>
-         </div>
-         <div class="col-4 mt-4 mb-3">
-            <a class="ps-3 pe-3 pt-2 pb-2" href="#"><img src="assets/img/images/plus2.png" alt=""></a>
-         </div>
-         <div class="col-3 mt-4 mb-3">
-            <a class="ps-3 pe-3 pt-2 pb-2" href=""><img class="ms-3" src="assets/img/images/verified.png" alt=""></a>
-         </div>
-      </div>
-   </div>
+
 
    <div id="hidden-submit" class="reedem-submit-end hidden-button col-11 ms-3 mt-4 pb-5 pt-3">
       <h1 class="text-center" style="color: rgb(0, 0, 0);">Apakah anda yakin ingin melakukan reedem?</h1>
@@ -115,9 +108,4 @@
       </div>
    </div>
 
-   <script src="assets/js/bootstrap.min.js"></script>
-   <script src="assets/js/bootstrap.js"></script>
-   <script src="assets/js/main.js"></script>
-</body>
-
-</html>
+  

@@ -23,7 +23,7 @@
         <a class="overview-button ps-3 pe-4 pt-2 pb-2">Overview</a>
       </div>
       <div class="col-6 ms-3">
-        <a class="reedem-button ps-3 pe-4 pt-2 pb-2">Reedem Point</a>
+        <a href="reedempoint" class="reedem-button ps-3 pe-4 pt-2 pb-2">Reedem Point</a>
       </div>
     </div>
   </div>

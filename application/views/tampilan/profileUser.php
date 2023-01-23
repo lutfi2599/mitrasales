@@ -21,7 +21,7 @@
     <img src="assets/img/images/hasbulla2.jpg" alt="" class="profile-picture">
     <h1 style="color: white;" class="profile-name">Jhogi Decalvin</h1>
     <h6 style="color: white;" class="profile-email">jhogidecalvin@gmail.com</h6>
-    <a href="" class="btn btn-primary edit-profile-button">Edit Profile</a>
+    <a href="edit" class="btn btn-primary edit-profile-button">Edit Profile</a>
   </div>
 
   <div class="col-11 ms-3 mt-3  customer-info">
@@ -50,10 +50,10 @@
     </p>
   </div>
   <div class="d-grid gap-2 col-11 mx-auto">
-    <a href="https://github.com" class="btn btn-primary btn-lg mt-2  sign-in">Update</a>
+    <a href="update" class="btn btn-primary btn-lg mt-2  sign-in">Update</a>
   </div>
   <div class="d-grid gap-2 col-11 mx-auto">
-    <a href="https://github.com" class="btn btn-dark btn-lg mt-2  log-out">Log Out</a>
+    <a href="logout" class="btn btn-dark btn-lg mt-2  log-out">Log Out</a>
   </div>
 
   

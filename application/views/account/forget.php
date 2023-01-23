@@ -41,6 +41,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
     <?php echo form_close(); ?>
 
+    <?php echo form_open('/registration/saveRegis', ['method' => 'POST', 'autocomplete' => 'off']); ?> 
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="username" autofocus />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary btn-block"><?php echo lang('request_password') ?></button>
+          </div>
+          <!-- /.col -->
+        </div>
+    <?php echo form_close(); ?>
+
       <p class="mt-3 mb-1">
         <a href="<?php echo url('login') ?>"><?php echo lang('signin') ?></a>
       </p>

@@ -6,7 +6,7 @@
 
 <!-- heading -->
 
-<body class="bg-dark">
+<body class="bg-dark mb-5">
    <div class="container">
       <div class="row">
          <div class="col-4 mt-4">
@@ -23,23 +23,19 @@
    <!-- end of heading -->
 
    <!-- search -->
-   <div class="input-group search-jurnal" style="position: absolute">
+   <div class="input-group search-jurnal " style="position: absolute">
       <div class="form-outline col-11" style="padding-left: 8%;">
          <input type="search" id="form1" class="form-control search" placeholder="Search" />
       </div>
       <!-- end of search -->
-      <div class="col-4 mt-4">
-         <a class="all-button ps-4 pe-4 pt-2 pb-2" href="#">All</a>
+      <div class="col-6 mt-4 mb-2">
+         <a class="all-button ps-4 pe-4 pt-2 pb-2" href="input">New Prospect</a>
       </div>
-
+     
+   
       <div class="col-10 mt-3 prospect-person">
          <a href="" class="prospect-person">
-            <p class="ps-5 pb-2">Randika Fajri</p>
-         </a>
-      </div>
-      <div class="col-10 mt-3 prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-2">Hasbulla Magomedov </p>
+            <p class="ps-5 pb-2">darwin Nunez</p>
          </a>
       </div>
       <div class="col-10 mt-3 prospect-person">
@@ -52,26 +48,12 @@
             <p class="ps-5 pb-3">Kim Jong Un</p>
          </a>
       </div>
-      <div class="col-10 mt-3 red-prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-3">Kim Jong Un</p>
-         </a>
-      </div>
       <div class="col-10 mt-3 yellow-prospect-person">
          <a href="" class="prospect-person">
             <p class="ps-5 pb-3">JokoChad</p>
          </a>
       </div>
-      <div class="col-10 mt-3 yellow-prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-3">JokoChad</p>
-         </a>
-      </div>
-      <div class="col-10 mt-3 yellow-prospect-person">
-         <a href="" class="prospect-person">
-            <p class="ps-5 pb-3">JokoChad</p>
-         </a>
-      </div>
+    
 
 
 
