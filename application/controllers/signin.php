@@ -1,7 +1,8 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Signin extends CI_Controller {
 
 	public $data;
 
@@ -16,9 +17,9 @@ class Login extends CI_Controller {
 			die('Database is not configured');
 		}
 
-		if(is_logged()){
-			redirect('dashboard','refresh');
-		}
+		// if(is_logged()){
+		// 	redirect('main','refresh');
+		// }
 
 		$this->data = [
 			'assets' => assets_url(),
@@ -29,7 +30,9 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('tampilan/login', $this->data, FALSE);
+		$this->load->view('templates/header');
+		$this->load->view('tampilan/signin', $this->data, FALSE);
+		$this->load->view('templates/footer_login');
 	}
 
 
@@ -219,3 +222,4 @@ class Login extends CI_Controller {
 
 /* End of file Login.php */
 /* Location: ./application/controllers/Admin/Login.php */
+

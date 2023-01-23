@@ -1,14 +1,27 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends MY_Controller {
+class Dashboard extends MY_Controller
+{
 
-	public function index()
-	{
-		$this->load->view('dashboard', $this->page_data);
-	}
+   
+    public function index()
+    {
+        $this->load->model('Master_model', 'master');
 
+        $userId = logged('id');
+        $this->page_data['userPoint'] = $this->master->getUserPoint($userId);
+
+        $this->load->view('templates/header');
+        $this->load->view('tampilan/main', $this->page_data);
+        $this->load->view('templates/footer');
+      
+    }
+
+    
+
+    /* ---------------END OF Reedem Point----------------- */
 }
 
-/* End of file Dashboard.php */
-/* Location: ./application/controllers/Dashboard.php */
+/* End of file Users.php */
+/* Location: ./application/controllers/Users.php */

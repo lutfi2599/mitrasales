@@ -1,0 +1,387 @@
+body{
+    margin-bottom: 0;
+    background-color: #000;
+}
+
+.main-car{
+    background-color: transparent;
+    margin-top: 50px;
+    margin-left: 10%;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+
+.main-title{
+    color: white;
+    font-size: 45px;
+    text-align: center;
+}
+
+.sign-in{
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline;
+}
+
+.log-out{
+    background: rgb(58, 58, 58);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    display: inline;
+}
+
+.log-out:hover{
+    background-color: red;
+}
+
+.side-button{
+    border-style: solid;
+    border-color: white;
+}
+
+.sign-up{
+    font-size: 16px;
+}
+
+.forgot-password{
+    font-size: 16px;
+}
+
+.terms-conditions{
+    color: white;
+    opacity: 0.6;
+}
+
+.sign-up:hover{
+    background-color: rgb(0, 255, 0);
+}
+
+.forgot-password:hover{
+    background-color: rgb(184, 184, 1);
+}
+
+.back-button{
+    background-color: royalblue;
+    text-decoration: none;
+    color: white;
+    border-radius: 20%;
+}
+
+.back-button:hover{
+    color: white;
+}
+
+.prospect-title{
+    color: white;
+}
+
+.user-link{
+    display: inline;
+}
+
+.user-picture{
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+    border-radius: 200px;
+}
+
+.search{
+    background-color: rgb(65, 65, 65);
+    color: white;
+    border-radius: 20px;
+    margin-top: -20px;
+}
+
+.search-forgot{
+    background-color: rgb(61, 61, 61);
+    color: white;
+    border-radius: 20px;
+    margin-top: -20px;
+}
+
+.all-button{
+    background-color: royalblue;
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    margin-left: 33px;
+}
+
+.prospect-person{
+    background-color: rgb(57, 207, 57);
+    color: white;
+    text-decoration: none;
+    left: 50px;
+    margin-left: 33px !important;
+    border-radius: 20px !important;
+}
+
+.red-prospect-person{
+    background-color: rgb(204, 55, 55);
+    color: white;
+    text-decoration: none;
+    left: 50px;
+    margin-left: 33px !important;
+    border-radius: 20px !important;
+}
+
+.yellow-prospect-person{
+    background-color: rgb(212, 155, 0);
+    color: white;
+    text-decoration: none;
+    left: 50px;
+    margin-left: 33px !important;
+    border-radius: 20px !important;
+}
+
+.footer-app{
+    overflow: hidden;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(36, 36, 36);
+}
+
+.input-title{
+    font-size: 15px;
+    color: white;
+}
+
+.input{
+    background-color: rgb(56, 56, 56);
+    color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.submit-button{
+    border-radius: 20px;
+    color: white;
+}
+
+.submit-button-no{
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(224, 224, 9);
+}
+
+.submit-button-no:hover{
+    color: white;
+    background-color: rgba(165, 165, 1, 0.904);
+}
+
+.profile-picture{
+    height: 140px;
+    width: 140px;
+    border-radius: 100px;
+}
+
+.profile-name{
+    font-size: 40px;
+}
+
+.profile-email{
+    opacity: 0.6;
+}
+
+.edit-profile-button{
+    border-radius: 20px;
+}
+
+.customer-info{
+    background-color: rgb(71, 71, 71);
+    text-align: justify;
+    border-radius: 20px;
+}
+
+.reedem-item{
+    background-color: rgb(71, 71, 71);
+    color: white;
+    text-decoration: none;
+    left: 50px;
+    margin-left: 33px !important;
+    border-radius: 20px !important;
+    border-style: solid;
+    border-color: forestgreen;
+}
+
+.reedem-picture{
+    height: 40px;
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.reedem-link{
+    text-decoration: none;
+    color: white;
+}
+
+.home-name{
+    color: white;
+    font-size: 30px;
+    position: relative;
+    bottom: 50px;
+}
+
+.reedem-button{
+    background-color: green;
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    position: relative;
+    bottom: 40px;
+}
+.overview-button{
+    background-color: royalblue;
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    margin-left: 13px;
+    position: relative;
+    bottom: 40px;
+}
+
+.total-point{
+    background-color: rgb(56, 56, 56);
+    border-radius: 20px;
+    position: relative;
+    bottom: 40px;
+}
+
+.reedem-submit{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: black;
+    position: relative;
+    bottom: 40px;
+    bottom: 300px;
+    z-index: 2;
+}
+
+.reedem-submit-end{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    color: black;
+    position: relative;
+    bottom: 40px;
+    bottom: 300px;
+    z-index: 2;
+}
+
+.hidden-button{
+    display: none;
+}
+
+.reedem-point-status{
+    width: 20px;
+    height: 20px;
+}
+
+.reedem-icon-box{
+    background-color: royalblue;
+    padding-right: 28px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 20px;
+}
+
+.reedem-icon-box-waiting{
+    background-color: rgb(0, 255, 34);
+    padding-right: 28px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 20px;
+}
+
+.categories{
+    position: relative;
+    bottom: 20px;
+}
+
+.reedem-status-number{
+    position: relative;
+    top: 10px;
+    color: white;
+    font-size: 40px;
+}
+
+.reedem-status-bar{
+    position: relative;
+    top: 25px;
+}
+
+.prospect-user-picture{
+    position: relative;
+    right: 10px;
+}
+
+.loader{
+    background: rgb(0, 0, 0) url(/images/loader1.gif) no-repeat center center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader-gif{
+    width: 150px;
+    height: 110px;
+}
+
+.sign-up-title{
+    color: rgb(255,255,255);
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Roboto Condensed',sans-serif;
+}
+
+.forgot-title{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Roboto Condensed',sans-serif;
+    margin-top: 50px !important;
+}
+
+/* .forgot-password{
+    background-color: white;
+} */
+
+  .forgot-background{
+    background-color: white  ;
+  }
+
+  .forgot-layout{
+    display: grid;
+    place-items: center;
+    height: 400px;
+  }
+
+  .back-login{
+    display: inline-block;
+    position: relative;
+    color: white !important;
+    text-decoration: none !important;
+    text-align: center ;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .reedem-link{
+    text-decoration: none;
+  }
+
+@media only screen and (max-height: 800px) {
+    .reedem-submit-end{
+        bottom: 350px;
+    }
+}
