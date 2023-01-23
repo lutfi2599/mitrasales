@@ -94,8 +94,9 @@ class Master extends MY_Controller
 
     public function rewardList()
     {
+
         $this->page_data['rewards'] = $this->master->getRewardList();
-        $this->load->view('/', $this->page_data);
+        $this->load->view('reedemPoint', $this->page_data);
     }
 
     public function addReedem()
@@ -120,7 +121,7 @@ class Master extends MY_Controller
         $this->master->addData('db_reedem', $data);
         $this->master->updateData('db_user', $totalPoint, $userId);
 
-        $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang'.$id.'');
+        $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang' . $id . '');
 
         $this->session->set_flashdata('alert-type', 'success');
         $this->session->set_flashdata('alert', 'Selamat! anda berhasil meng reedem point dengan hadiah');

@@ -8,6 +8,7 @@ class Login extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+        $this->load->library('form_validation');
 
 		date_default_timezone_set( setting('timezone') );
 
@@ -15,9 +16,9 @@ class Login extends CI_Controller {
 			die('Database is not configured');
 		}
 
-		if(is_logged()){
-			redirect('dashboard','refresh');
-		}
+		// if(is_logged()){
+		// 	redirect('main','refresh');
+		// }
 
 		$this->data = [
 			'assets' => assets_url(),
@@ -28,14 +29,12 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('account/login', $this->data, FALSE);
+		// $this->load->view('tampilan/', $this->data, FALSE);
 	}
 
 
 	public function check()
 	{
-
-        $this->load->library('form_validation');
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_validate_username');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|xss_clean');
@@ -46,10 +45,12 @@ class Login extends CI_Controller {
         	$this->form_validation->set_rules('g-recaptcha-response', 'Google Recaptcha', 'callback_validate_recaptcha');
 
         if ($this->form_validation->run() == FALSE)
-        {
-            $this->index();
-            return;
-        }
+        {   $this->load->view('templates/header');
+            $this->load->view('tampilan/signin');
+            $this->load->view('templates/footer');
+        } else {
+			redirect('main');
+		}
 
         $username = post('username');
         $password = post('password');
@@ -92,7 +93,7 @@ class Login extends CI_Controller {
 
         }
 
-        redirect('/','refresh');
+        redirect('main','refresh');
 
 	}
 
