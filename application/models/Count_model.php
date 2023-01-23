@@ -13,33 +13,26 @@ class Count_model extends MY_Model
 
     public function countProspect($id)
     {
-        $this->db->select_sum('id');
-        $this->db->where('id_user', $id);
-        return $this->db->get('db_prospect')->row_array();
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Waiting' OR sts = 'Deal'");
+        return $query->result_array();
     }
 
     public function countWaiting($id)
     {
-        $this->db->select_sum('sts');
-        $this->db->where('id_user', $id);
-        $this->db->where('sts', 'Waiting');
-        return $this->db->get('db_prospect')->row_array();
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Waiting'");
+        return $query->result_array();
     }
 
     public function countLost($id)
     {
-        $this->db->select_sum('sts');
-        $this->db->where('id_user', $id);
-        $this->db->where('sts', 'Lost');
-        return $this->db->get('db_prospect')->row_array();
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Lost'");
+        return $query->result_array();
     }
 
     public function countDeal($id)
     {
-        $this->db->select_sum('sts');
-        $this->db->where('id_user', $id);
-        $this->db->where('sts', 'Deal');
-        return $this->db->get('db_prospect')->row_array();
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Deal'");
+        return $query->result_array();
     }
 }
 

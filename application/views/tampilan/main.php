@@ -58,7 +58,7 @@
             <h5 class=" mb-3 col-5" style="color: white;">Prospect</h1>
           </div>
         </div>
-        <h1 class="reedem-status-number">10</h1>
+        <h1 class="reedem-status-number"><?= $cprospect[0]['hitung'] ?></h1>
         <div class="progress reedem-status-bar">
           <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
@@ -76,7 +76,7 @@
             <h5 class="ms-2 mb-3 col-2" style="color: white;">waiting</h1>
           </div>
         </div>
-        <h1 class="reedem-status-number">2</h1>
+        <h1 class="reedem-status-number"><?= $cwaiting[0]['hitung'] ?></h1>
         <div class="progress reedem-status-bar">
           <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
@@ -97,7 +97,7 @@
             <h5 class=" mb-3 col-5 ms-3" style="color: white;">Lost</h1>
           </div>
         </div>
-        <h1 class="reedem-status-number">5</h1>
+        <h1 class="reedem-status-number"><?= $clost[0]['hitung'] ?></h1>
         <div class="progress reedem-status-bar">
           <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
@@ -115,7 +115,7 @@
             <h5 class="ms-3 mb-3 col-2" style="color: white;">Deal</h1>
           </div>
         </div>
-        <h1 class="reedem-status-number">10</h1>
+        <h1 class="reedem-status-number"><?= $cdeal[0]['hitung'] ?></h1>
         <div class="progress reedem-status-bar">
           <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
