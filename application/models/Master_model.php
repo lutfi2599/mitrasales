@@ -13,8 +13,11 @@ class Master_model extends MY_Model
 
     public function getAllData($table)
     {
-        $query = $this->db->get($table);
-        return $query->result_array();
+        $idu = logged('id');
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where('id_user', $idu);
+        return $this->db->get()->result_array();
     }
 
     public function getRewardList()

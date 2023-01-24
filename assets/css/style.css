@@ -235,6 +235,15 @@ body{
     position: relative;
     bottom: 40px;
 }
+
+.reedem-buttonred{
+    background-color: red;
+    text-decoration: none;
+    color: white;
+    border-radius: 30px;
+    position: relative;
+    bottom: 40px;
+}
 .overview-button{
     background-color: royalblue;
     text-decoration: none;

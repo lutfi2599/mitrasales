@@ -13,25 +13,29 @@ class Count_model extends MY_Model
 
     public function countProspect($id)
     {
-        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Waiting' OR sts = 'Deal'");
+        $idu = logged('id');
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE id_user = '$idu' AND sts = 'Waiting'");
         return $query->result_array();
     }
 
     public function countWaiting($id)
     {
-        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Waiting'");
+        $idu = logged('id');
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE id_user = '$idu' AND sts = 'Waiting'");
         return $query->result_array();
     }
 
     public function countLost($id)
     {
-        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Lost'");
+        $idu = logged('id');
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE id_user = '$idu' AND sts = 'Lost'");
         return $query->result_array();
     }
 
     public function countDeal($id)
     {
-        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE sts = 'Deal'");
+        $idu = logged('id');
+        $query = $this->db->query("SELECT COUNT(*) as hitung FROM `db_prospect` WHERE id_user = '$idu' AND sts = 'Deal'");
         return $query->result_array();
     }
 }
