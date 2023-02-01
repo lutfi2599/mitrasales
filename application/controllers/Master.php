@@ -58,6 +58,7 @@ class Master extends MY_Controller
             'unit_minat' => post('mobil'),
             'sts' => 'Waiting',
             'create_at' => time(),
+            'tgl_dibuat' => date('Y-m-d'),
             'update_at' => null
         );
 
@@ -67,6 +68,29 @@ class Master extends MY_Controller
 
         $this->session->set_flashdata('alert-type', 'success');
         $this->session->set_flashdata('alert', 'Anda berhasil membuat prospect baru');
+
+        redirect('master/viewProspect');
+    }
+
+    public function updateProspect($id)
+    {
+
+        $data = array(
+            'id_user' => logged('id'),
+            'nama_customer' => post('nama_customer'),
+            'telp' => post('telepon'),
+            'alamat' => post('alamat'),
+            'unit_minat' => post('mobil'),
+            'sts' => 'Waiting',
+            'update_at' => time()
+        );
+
+        $this->master->updateData('db_prospect', $data, $id);
+
+        $this->activity_model->add('Ubah Data Prospect');
+
+        $this->session->set_flashdata('alert-type', 'success');
+        $this->session->set_flashdata('alert', 'Anda berhasil Mengubah prospect');
 
         redirect('master/viewProspect');
     }
@@ -104,7 +128,7 @@ class Master extends MY_Controller
         $this->session->set_flashdata('alert-type', 'success');
         $this->session->set_flashdata('alert', 'Data Prospect Berhasil Dihapus');
 
-        redirect('/');
+        redirect('master/viewProspect');
     }
     /* ---------------END OF PROSES UNTUK HALAMAN PROSPECT----------------- */
 
@@ -147,6 +171,7 @@ class Master extends MY_Controller
                 'id_reward' => post('idItem'),
                 'point' => $getItemPoint,
                 'create_at' => time(),
+                'tgl_dibuat' => date('Y-m-d'),
                 'update_at' => null
             );
 

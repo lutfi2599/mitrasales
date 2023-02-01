@@ -53,6 +53,10 @@ $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['halaman-login'] = 'login/loginHome';
+$route['halaman-signin'] = 'login';
+$route['halaman-signup'] = 'login/signUp';
+$route['halaman-forgot-password'] = 'login/forgotPw';
 
 
 // [AdminLTE]

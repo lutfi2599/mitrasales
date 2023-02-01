@@ -22,16 +22,16 @@
   <h1 class="main-title">Jadilah Mitra Agung Toyota & Raih Hadiahnya!</h1>
 
   <div class="d-grid gap-2 col-10 mx-auto">
-    <a href="<?php echo base_url('signin') ?>" class="btn btn-primary btn-lg mt-4  sign-in">Sign In</a>
+    <a href="<?= url('/halaman-signin') ?>" class="btn btn-primary btn-lg mt-4 sign-in">Sign In</a>
   </div>
 
   <div class="container">
     <div class="row">
       <div class="d-grid gap-5 col-6 mx-auto">
-        <a href="signup" class="btn btn-dark btn-lg mt-4 sign-in side-button sign-up">Sign Up</a>
+        <a href="<?= url('/halaman-signup') ?>" class="btn btn-dark btn-lg mt-4 sign-in side-button sign-up">Sign Up</a>
       </div>
       <div class="d-grid gap-5 col-6 mx-auto">
-        <a href="forgotpassword" class="btn btn-dark btn-lg mt-4 sign-in side-button forgot-password">Forgot Password</a>
+        <a href="<?= url('/halaman-forgot-password') ?>" class="btn btn-dark btn-lg mt-4 sign-in side-button forgot-password">Forgot Password</a>
       </div>
 
     </div>

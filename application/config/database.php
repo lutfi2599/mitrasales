@@ -75,9 +75,13 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '117.53.47.202',
-	'username' => 'hatiuser',
-	'password' => 'P4ssword!',
+	// 'hostname' => '117.53.47.202',
+	// 'username' => 'hatiuser',
+	// 'password' => 'P4ssword!',
+	// 'database' => 'mitrasales',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => 'root',
 	'database' => 'mitrasales',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

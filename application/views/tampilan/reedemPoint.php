@@ -26,7 +26,7 @@
             <p class="prospect-title">Reedem Point</p>
          </div>
          <div class="col-4 mt-3">
-            <a href=""><img src="<?php echo base_url() ?>assets/img/images/hasbulla2.jpg" alt="" class="user-picture mb-3"></a>
+            <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" class="user-picture mb-3"></a>
          </div>
       </div>
    </div>
@@ -48,21 +48,23 @@
 
 
    <?php foreach ($rewards as $row) : ?>
-      <div class="col-sm-12 mt-2 reedem-item">
-         <div class="container">
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row['id'] ?>">
-               <div class="row">
-                  <div class="col-2">
-                     <img src="<?php echo base_url() ?>assets/img/images/iphone.jpg" alt="" class="reedem-picture mt-3">
+      <?php if ($row['status'] != 0) : ?>
+         <div class="col-sm-12 mt-2 reedem-item">
+            <div class="container">
+               <a data-bs-toggle="modal" data-bs-target="#exampleModal<?= $row['id'] ?>">
+                  <div class="row">
+                     <!-- <div class="col-2">
+                        <img src="<?php echo base_url() ?>assets/img/images/iphone.jpg" alt="" class="reedem-picture mt-3">
+                     </div> -->
+                     <div class="col-10">
+                        <p class="ps-5 pb-2 mt-4"><?= $row['nama_reward'] ?></p>
+                        <p class="ps-5 pb-2" style="font-size: 12px; margin-top: -15px;"><?= $row['total_point'] ?> point</p>
+                     </div>
                   </div>
-                  <div class="col-10">
-                     <p class="ps-5 pb-2 mt-4"><?= $row['nama_reward'] ?></p>
-                     <p class="ps-5 pb-2" style="font-size: 12px; margin-top: -15px;"><?= $row['total_point'] ?> point</p>
-                  </div>
-               </div>
-            </a>
+               </a>
+            </div>
          </div>
-      </div>
+      <?php endif; ?>
    <?php endforeach ?>
 
 

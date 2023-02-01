@@ -14,7 +14,7 @@
             <p class="prospect-title">List Prospect</p>
          </div>
          <div class="col-4 mt-3">
-            <a href="profileuser"><img src="<?php echo base_url() ?>assets/img/images/hasbulla2.jpg" alt="" class="user-picture mb-5"></a>
+            <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" class="user-picture mb-5"></a>
          </div>
       </div>
    </div>
@@ -22,18 +22,27 @@
 
    <!-- search -->
    <div class="input-group search-jurnal " style="position: absolute">
-      <div class="form-outline col-11" style="padding-left: 8%;">
+      <!-- <div class="form-outline col-11" style="padding-left: 8%;">
          <input type="search" id="form1" class="form-control search" placeholder="Search" />
-      </div>
+      </div> -->
       <!-- end of search -->
       <div class="col-6 mt-4 mb-2">
          <a class="all-button ps-4 pe-4 pt-2 pb-2" href="<?= url('master/viewAddPros') ?>">New Prospect</a>
       </div>
 
-      <?php foreach ($prospects as $row) : ?>
-         <div class="col-10 mt-3 prospect-person">
-            <a href="<?php echo url('master/viewEditPros/' . $row['id']) ?>" class="prospect-person">
-               <p class="ps-5 pb-2" style="font-size: 24px;"><?= $row['nama_customer'] ?></p>
-            </a>
+      <div class="container">
+         <div class="row">
+            <?php foreach ($prospects as $row) : ?>
+               <div class="col-10 mt-3 prospect-person">
+                  <a href="<?php echo url('master/viewEditPros/' . $row['id']) ?>" class="prospect-person">
+                     <p class="ps-5 pb-2" style="font-size: 24px;"><?= $row['nama_customer'] ?></p>
+                  </a>
+               </div>
+            <?php endforeach ?>
          </div>
-      <?php endforeach ?>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+      </div>

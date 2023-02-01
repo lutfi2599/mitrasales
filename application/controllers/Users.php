@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Users extends MY_Controller {
+class Users extends MY_Controller
+{
 
 	public function __construct()
 	{
@@ -37,55 +38,52 @@ class Users extends MY_Controller {
 	public function viewEditUser($id)
 	{
 		$this->page_data['User'] = $this->users_model->getUserData($id);
-		$this->load->view('/', $this->page_data);
+		$this->load->view('templates/header');
+		$this->load->view('tampilan/profileUser', $this->page_data);
+		$this->load->view('templates/footer_login');
 	}
 
 	public function updateDataUser($id)
 	{
-        $data = array(
-            'nama_lengkap' => 'piyo nanas',
-            'hp' => '0813404',
-            'alamat' => 'konter ilham',
-            'email' => 'ilil@gmail.com',
-            'kendaraan' => 'avanza',
-            'salesman' => 'wahyu'
-        );
+		$data = array(
+			'username' => post('username'),
+			'nama_lengkap' => post('nama_lengkap'),
+			'hp' => post('hp'),
+			'alamat' => post('alamat'),
+			'email' => post('email'),
+			'kendaraan' => post('kendaraan'),
+			'salesman' => post('salesman')
+		);
 
-		// $password = post('password');
-		$password = '';
-		
-		if(logged('id')!=$id)
-			$data['status'] = post('status')==1;
+		$password = post('password');
 
-		if(!empty($password))
-			$data['password'] = hash( "sha256", $password );
+		if (!empty($password))
+			$data['password'] = hash("sha256", $password);
 
 		$this->users_model->updateData('db_user', $data, $id);
 
-		if (!empty($_FILES['image']['name'])) {
+		// if (!empty($_FILES['image']['name'])) {
 
-			$path = $_FILES['image']['name'];
-			$ext = pathinfo($path, PATHINFO_EXTENSION);
-			$this->uploadlib->initialize([
-				'file_name' => $id.'.'.$ext
-			]);
-			$image = $this->uploadlib->uploadImage('image', '/users');
+		// 	$path = $_FILES['image']['name'];
+		// 	$ext = pathinfo($path, PATHINFO_EXTENSION);
+		// 	$this->uploadlib->initialize([
+		// 		'file_name' => $id.'.'.$ext
+		// 	]);
+		// 	$image = $this->uploadlib->uploadImage('image', '/users');
 
-			if($image['status']){
-				$this->users_model->update($id, ['img_type' => $ext]);
-			}
+		// 	if($image['status']){
+		// 		$this->users_model->update($id, ['img_type' => $ext]);
+		// 	}
 
-		}
+		// }
 
-		$this->activity_model->add('Merubah Data Profile');
+		$this->activity_model->add('Berhasil Merubah Data Profile');
 
-        $this->session->set_flashdata('alert-type', 'success');
-        $this->session->set_flashdata('alert', 'Anda berhasil merubah data profile');
-		
-		redirect('/');
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Anda berhasil merubah data profile');
 
+		redirect('users/viewEditUser/' . $id);
 	}
-
 }
 
 /* End of file Users.php */
