@@ -77,7 +77,7 @@ class Users extends MY_Controller
 
 		// }
 
-		$this->activity_model->add('Berhasil Merubah Data Profile');
+		// $this->activity_model->add('Berhasil Merubah Data Profile');
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Anda berhasil merubah data profile');

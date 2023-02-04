@@ -34,8 +34,8 @@
          <div class="row">
             <?php foreach ($prospects as $row) : ?>
                <div class="col-10 mt-3 prospect-person">
-                  <a href="<?php echo url('master/viewEditPros/' . $row['id']) ?>" class="prospect-person">
-                     <p class="ps-5 pb-2" style="font-size: 24px;"><?= $row['nama_customer'] ?></p>
+                  <a href="<?php echo url('master/viewEditPros/' . $row['id']) ?>" class="text-white text-center" style="text-decoration: none;">
+                     <p style="font-size: 16px;padding: 10px 0 0 0"><?= $row['nama_customer'] ?></p>
                   </a>
                </div>
             <?php endforeach ?>

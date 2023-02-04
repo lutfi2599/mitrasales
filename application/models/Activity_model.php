@@ -10,6 +10,15 @@ class Activity_model extends MY_Model {
 		parent::__construct();
 	}
 
+	public function getData($idUser)
+    {
+        $this->db->select('*');
+        $this->db->from('db_history_prospect');
+        $this->db->where('id_user', $idUser);
+        $this->db->order_by('create_at', 'DESC');
+        return $this->db->get()->result_array();
+    }
+
 	public function add($message)
 	{
 		return $this->create([

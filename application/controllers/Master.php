@@ -178,7 +178,7 @@ class Master extends MY_Controller
             $this->master->addData('db_reedem', $data);
             $this->master->updateData('db_user', $totalPoint, $userId);
 
-            $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang ' . $getItemName . ' sebanyak ' . $getItemPoint);
+            $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang ' . $getItemName . ' sebanyak ' . $getItemPoint.' point');
 
             $this->session->set_flashdata('alert-type', 'success');
             $this->session->set_flashdata('alert', 'Selamat, anda berhasil menukarkan point anda!');
