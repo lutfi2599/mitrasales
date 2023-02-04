@@ -8,21 +8,17 @@
       <!-- <h3 class="prospect-title">Home</h3> -->
     </div>
     <div class="col-4 mt-3 ">
-      <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" class="user-picture mb-5"></a>
+      <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" class="user-picture mb-5"></a>
     </div>
   </div>
 </div>
 
-<h1 class="home-name" style="font-size: 20px; bottom: 70px; left: 15px">Hello, <?= logged('nama_lengkap'); ?></h1>
 
+<h1 class="home-name" style="font-size: 20px;margin-left: 25px; margin-top: -30px;">Hello, <?= logged('nama_lengkap'); ?></h1>
 <div class="container me-5">
   <div class="row">
-    <div class="col-4">
-      <!-- <a class="overview-button ps-3 pe-4 pt-2 pb-2">Overview</a> -->
-      <a href="<?= url('logout') ?>" class="reedem-buttonred ps-3 pe-4 pt-2 pb-2">Logout</a>
-    </div>
     <div class="col-6">
-      <a href="<?= url('master/rewardList') ?>" class="reedem-button ps-3 pe-4 pt-2 pb-2">Reedem Point</a>
+      <a href="<?= url('master/rewardList') ?>" class="btn btn-success" style="margin-bottom: 40px; margin-left: 15px;margin-top: -25px">Reedem Point</a>
     </div>
   </div>
 </div>

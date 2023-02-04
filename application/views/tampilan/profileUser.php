@@ -18,7 +18,7 @@
   </div>
 
   <div class="text-center mt-4">
-    <img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="" class="profile-picture">
+    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" class="profile-picture">
     <h1 style="color: white;" class="profile-name"><?= $User[0]['nama_lengkap'] ?></h1>
     <h6 style="color: white;" class="profile-email"><?= $User[0]['email'] ?></h6>
   </div>
