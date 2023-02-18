@@ -84,6 +84,22 @@ class Users extends MY_Controller
 
 		redirect('users/viewEditUser/' . $id);
 	}
+
+	public function crop()
+	{
+		if (isset($_POST['crop_image'])) {
+			$path = $_FILES['crop_image']['name'];
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
+			$data = $_POST['crop_image'];
+			$image_array_1 = explode(";", $data);
+			$image_array_2 = explode(",", $image_array_1[1]);
+			$base64_decode = base64_decode($image_array_2[1]);
+			// $path_img = 'uploads/users/' . logged('id') . time() . '.' . $ext;
+			$path_img = 'uploads/users/' . logged('id') . '.png';
+			$imagename = '' . time() . '.png';
+			file_put_contents($path_img, $base64_decode);
+		}
+	}
 }
 
 /* End of file Users.php */

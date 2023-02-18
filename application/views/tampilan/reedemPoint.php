@@ -26,7 +26,7 @@
             <p class="prospect-title">Reedem Point</p>
          </div>
          <div class="col-4 mt-3">
-            <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" class="user-picture mb-3"></a>
+            <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="<?= base_url('uploads/users/' . logged('id') . '.png'); ?>" alt="" class="user-picture mb-3"></a>
          </div>
       </div>
    </div>

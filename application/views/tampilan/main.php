@@ -8,7 +8,7 @@
       <!-- <h3 class="prospect-title">Home</h3> -->
     </div>
     <div class="col-4 mt-3 ">
-      <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" class="user-picture mb-5"></a>
+      <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="<?= base_url('uploads/users/' . logged('id') . '.png'); ?>" alt="" class="user-picture mb-5"></a>
     </div>
   </div>
 </div>
@@ -50,7 +50,7 @@
               <img src="<?php echo base_url() ?>assets/img/images/user.png" alt="">
             </div>
           </div>
-          <h5 class=" mb-3 col-5" style="color: white;">Prospect</h1>
+          <h5 class="mb-3 col-5" style="color: white;">Prospect</h1>
         </div>
       </div>
       <h1 class="reedem-status-number text-center"><?= $cprospect[0]['hitung'] ?></h1>
@@ -83,7 +83,7 @@
               <img src="<?php echo base_url() ?>assets/img/images/remove.png" alt="">
             </div>
           </div>
-          <h5 class=" mb-3 col-5 ms-3" style="color: white;">Lost</h1>
+          <h5 class="mb-3 col-5 ms-3" style="color: white;">Lost</h1>
         </div>
       </div>
       <h1 class="reedem-status-number text-center"><?= $clost[0]['hitung'] ?></h1>
