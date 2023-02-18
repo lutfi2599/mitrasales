@@ -42,7 +42,7 @@ class Registration extends CI_Controller
 
 		$id = ([
 			'username' => post('username'),
-			'password' => hash( "sha256", post('password') ),
+			'password' => hash("sha256", post('password')),
 			'nama_lengkap' => post('nama'),
 			'alamat' => post('alamat'),
 			'hp' => post('telepon'),
@@ -56,11 +56,10 @@ class Registration extends CI_Controller
 
 		$this->users_model->regisUser($id);
 
+		// $this->session->set_flashdata('alert-type', 'success');
+		// $this->session->set_flashdata('alert', 'Berhasil Daftar, mohon tunggu untuk konfirmasi aktivasi akun anda!');
 
-		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Berhasil Daftar');
-
-		redirect('signup-test');
+		redirect('login/');
 	}
 
 

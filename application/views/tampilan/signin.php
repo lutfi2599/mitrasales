@@ -6,8 +6,8 @@
       <p class="alert alert-<?php echo $message_type ?>"><?php echo $message ?></p>
     <?php endif; ?>
 
-    <?php if (!empty($this->session->flashdata('message'))) : ?>
-      <p class="alert alert-<?php echo $this->session->flashdata('message_type'); ?>"><?php echo $this->session->flashdata('message') ?></p>
+    <?php if (!empty($this->session->flashdata('alert'))) : ?>
+      <p class="alert alert-<?php echo $this->session->flashdata('alert-type'); ?>"><?php echo $this->session->flashdata('alert') ?></p>
     <?php endif; ?>
 
     <form action="<?php echo base_url('login/check') ?>" method="post">
