@@ -168,7 +168,7 @@ class Master extends MY_Controller
 
         $this->load->view('templates/header');
         $this->load->view('tampilan/reedempoint', $this->page_data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_i');
     }
 
     public function addReedem()

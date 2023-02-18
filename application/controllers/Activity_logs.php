@@ -18,7 +18,7 @@ class Activity_logs extends MY_Controller {
 
         $this->load->view('templates/header');
         $this->load->view('tampilan/activity', $this->page_data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_i');
 	}
 
 	// public function view($id)

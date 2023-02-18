@@ -94,8 +94,10 @@
             <?php echo form_open_multipart('master/addReedem/', ['class' => 'form-validate', 'autocomplete' => 'off']); ?>
             <div class="modal-content">
                <div class="modal-header">
+                  <div class="container">
+                     <h1 class="modal-title fs-6 text-center" id="exampleModalLabel">Apakah anda yakin ingin melakukan reedem?<br><span class="text-primary"><?= $row['nama_reward'] ?><br><span class="text-success"><?= $row['total_point'] ?> Point</span></h1>
+                  </div>
                   <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                  <h1 class="modal-title fs-6 text-center" id="exampleModalLabel">Apakah anda yakin ingin melakukan reedem?<br><span class="text-primary"><?= $row['nama_reward'] ?><br><span class="text-success"><?= $row['total_point'] ?> Point</span></h1>
                   <input type="hidden" name="itemName" value="<?= $row['nama_reward'] ?>">
                   <input type="hidden" name="itemPoint" value="<?= $row['total_point'] ?>">
                   <input type="hidden" name="idItem" value="<?= $row['id'] ?>">
