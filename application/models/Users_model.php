@@ -1,8 +1,9 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Users_model extends MY_Model {
-	
+class Users_model extends MY_Model
+{
+
 
 	public $table = 'db_user';
 
@@ -16,24 +17,21 @@ class Users_model extends MY_Model {
 		$query = $this->db->get($this->table);
 
 		// validate user
-		if(!empty($query) && $query->num_rows() > 0){
+		if (!empty($query) && $query->num_rows() > 0) {
 
 			// checks the password
-			if($query->row()->password == hash( "sha256", $data['password'] )){
+			if ($query->row()->password == hash("sha256", $data['password'])) {
 
-				if ($query->row()->status==='1')
+				if ($query->row()->status === '1')
 					return 'valid'; // if valid password and username and allowed
 				else
 					return 'not_allowed';
-
-			}
-			else
+			} else
 				return 'invalid_password'; // if invalid password
 
 		}
 
 		return false;
-
 	}
 
 	public function login($row, $remember = false)
@@ -41,9 +39,9 @@ class Users_model extends MY_Model {
 		$time = time();
 
 		// encypting userid and password with current time $time
-		$login_token = sha1($row->id.$row->password.$time);
+		$login_token = sha1($row->id . $row->password . $time);
 
-		if($remember===false){
+		if ($remember === false) {
 			$array = [
 				'login' => true,
 				// saving encrypted userid and password as token in session
@@ -53,18 +51,17 @@ class Users_model extends MY_Model {
 					'time' => $time,
 				]
 			];
-			$this->session->set_userdata( $array );
-		}else{
+			$this->session->set_userdata($array);
+		} else {
 
 			$data = [
 				'id' => $row->id,
 				'time' => time(),
 			];
 			$expiry = strtotime('+7 days');
-			set_cookie( 'login', true, $expiry );
-			set_cookie( 'logged', json_encode($data), $expiry );
-			set_cookie( 'login_token', $login_token, $expiry );
-
+			set_cookie('login', true, $expiry);
+			set_cookie('logged', json_encode($data), $expiry);
+			set_cookie('login_token', $login_token, $expiry);
 		}
 
 		setUserlang('es');
@@ -88,7 +85,7 @@ class Users_model extends MY_Model {
 		delete_cookie('logged');
 		delete_cookie('login_token');
 	}
-	
+
 
 	public function resetPassword($data)
 	{
@@ -98,7 +95,8 @@ class Users_model extends MY_Model {
 
 		$user = $this->db->get_where($this->table)->row();
 
-		if(!empty($user)){ }else{
+		if (!empty($user)) {
+		} else {
 			return 'invalid';
 		}
 
@@ -135,19 +133,23 @@ class Users_model extends MY_Model {
 
 	}
 
-	public function appendToSelectStr() {
-			return NULL;
-	}
-
-	public function fromTableStr() {
-		return 'users';
-	}
-
-	public function joinArray(){
+	public function appendToSelectStr()
+	{
 		return NULL;
 	}
 
-	public function whereClauseArray(){
+	public function fromTableStr()
+	{
+		return 'users';
+	}
+
+	public function joinArray()
+	{
+		return NULL;
+	}
+
+	public function whereClauseArray()
+	{
 		return NULL;
 	}
 
@@ -157,18 +159,39 @@ class Users_model extends MY_Model {
 	}
 
 	public function updateData($table, $data, $id)
-    {
-        $this->db->update($table, $data, array('id' => $id));
-    }
+	{
+		$this->db->update($table, $data, array('id' => $id));
+	}
 
 	public function getUserData($idUser)
-    {
-        $this->db->select('*');
-        $this->db->from('db_user');
-        $this->db->where('id', $idUser);
-        return $this->db->get()->result_array();
-    }
+	{
+		$this->db->select('*');
+		$this->db->from('db_user');
+		$this->db->where('id', $idUser);
+		return $this->db->get()->result_array();
+	}
 
+	public function check_username($username)
+	{
+		$this->db->where('username', $username);
+		$query = $this->db->get('db_user');
+		if ($query->num_rows() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function check_email($email)
+	{
+		$this->db->where('email', $email);
+		$query = $this->db->get('db_user');
+		if ($query->num_rows() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 /* End of file Users_model.php */

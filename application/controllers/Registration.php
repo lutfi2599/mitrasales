@@ -35,20 +35,70 @@ class Registration extends CI_Controller
 		$this->load->view('tampilan/login', $this->data, FALSE);
 	}
 
+	public function check_username()
+	{
+		// $username = $this->input->post('username');
+		$username = 'lutfi2599';
+		$result = $this->users_model->check_username($username);
+		if ($result) {
+			echo "Username sudah dipakai.";
+		} else {
+			echo "Username tersedia.";
+		}
+	}
+
+	public function check_unique_username($username)
+	{
+		$result = $this->users_model->check_username($username);
+		if ($result) {
+			$this->form_validation->set_message('check_unique_username', 'Username sudah dipakai.');
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public function check_unique_email($email)
+	{
+		$result = $this->users_model->check_email($email);
+		if ($result) {
+			$this->form_validation->set_message('check_unique_email', 'Email sudah dipakai.');
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	public function saveRegis()
 	{
 		// ifPermissions('users_add');
 		// postAllowed();
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_check_unique_username');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|xss_clean|valid_email|callback_check_unique_email');
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|xss_clean');
+		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('hp', 'HP', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('kendaraan', 'Kendaraan', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('salesman', 'Salesman', 'trim|required|xss_clean');
 
+		$this->load->view('templates/header');
+		if ($this->form_validation->run() == FALSE) {
+			return $this->load->view('tampilan/signup');
+		}
+		$this->load->view('templates/footer_login');
+
+		$idu = 'U-' . rand(10, 499) . '-' . time();
 		$id = ([
+			'id' => $idu,
 			'username' => post('username'),
 			'password' => hash("sha256", post('password')),
-			'nama_lengkap' => post('nama'),
+			'nama_lengkap' => post('nama_lengkap'),
 			'alamat' => post('alamat'),
-			'hp' => post('telepon'),
+			'hp' => post('hp'),
 			'email' => post('email'),
-			'kendaraan' => post('mobil'),
-			'salesman' => post('sales'),
+			'kendaraan' => post('kendaraan'),
+			'salesman' => post('salesman'),
 			'total_point' => 0,
 			'status' => 0,
 			'created_at' => time(),
@@ -56,19 +106,37 @@ class Registration extends CI_Controller
 
 		$this->users_model->regisUser($id);
 
+		if (!empty($_FILES['image']['name'])) {
+
+			$path = $_FILES['image']['name'];
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
+			$this->uploadlib->initialize([
+				'file_name' => $idu . '.' . $ext
+			]);
+			$image = $this->uploadlib->uploadImage('image', '/users');
+
+			if ($image['status']) {
+				$this->users_model->update($idu, ['img_type' => $ext]);
+			} else {
+				copy(FCPATH . 'uploads/users/default.png', 'uploads/users/' . $idu . '.png');
+			}
+		} else {
+
+			copy(FCPATH . 'uploads/users/default.png', 'uploads/users/' . $idu . '.png');
+		}
+
 		// $this->session->set_flashdata('alert-type', 'success');
 		// $this->session->set_flashdata('alert', 'Berhasil Daftar, mohon tunggu untuk konfirmasi aktivasi akun anda!');
 
 		redirect('login/');
 	}
 
-
 	public function check()
 	{
 
 		$this->load->library('form_validation');
 
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_validate_username');
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_check_username');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|xss_clean');
 
 		$is_recaptcha_enabled = (setting('google_recaptcha_enabled') == '1');

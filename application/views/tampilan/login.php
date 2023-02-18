@@ -15,10 +15,10 @@
 <body class="bg-dark">
 
   <div class="loader" id="loader">
-    <img id="loader-gif" src="assets/img/images/loader2.gif" alt="">
+    <img id="loader-gif" src="assets/img/images/loader2.gif" alt="d">
   </div>
 
-  <img src="assets/img/images/mobil2.jpg" alt="" width="80%" class="main-car">
+  <img src="assets/img/images/mobil2.jpg" alt="d" width="80%" class="main-car">
   <h1 class="main-title">Jadilah Mitra Agung Toyota & Raih Hadiahnya!</h1>
 
   <div class="d-grid gap-2 col-10 mx-auto">
@@ -39,7 +39,7 @@
   </div>
 
   <div class="terms-conditions text-center mt-3">
-    <p>By continuing you agree to the terms and conditions</p>
+    <span style="font-size: 12px;">By continuing you agree to the terms and conditions</span>
   </div>
 
 
