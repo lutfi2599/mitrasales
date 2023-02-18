@@ -45,7 +45,7 @@ class Master extends MY_Controller
 
         $this->load->view('templates/header');
         $this->load->view('tampilan/edit_pros', $this->page_data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_i');
     }
 
     public function addProspect()
@@ -141,18 +141,18 @@ class Master extends MY_Controller
         redirect('/');
     }
 
-    public function deleteProspect($id)
-    {
+    // public function deleteProspect($id)
+    // {
 
-        $this->master->deleteData('db_prospect', $id);
+    //     $this->master->deleteData('db_prospect', $id);
 
-        $this->activity_model->add('Menghapus data prospect');
+    //     $this->activity_model->add('Menghapus data prospect');
 
-        $this->session->set_flashdata('alert-type', 'success');
-        $this->session->set_flashdata('alert', 'Data Prospect Berhasil Dihapus');
+    //     $this->session->set_flashdata('alert-type', 'success');
+    //     $this->session->set_flashdata('alert', 'Data Prospect Berhasil Dihapus');
 
-        redirect('master/viewProspect');
-    }
+    //     redirect('master/viewProspect');
+    // }
     /* ---------------END OF PROSES UNTUK HALAMAN PROSPECT----------------- */
 
 
