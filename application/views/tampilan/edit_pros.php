@@ -22,18 +22,22 @@
 <div class="input-group mt-4">
     <div class="form-outline col-11" style="padding-left: 8%;">
         <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Nama Customer" name="nama_customer" value="<?= $user[0]['nama_customer']; ?>" />
+        <div class="text-danger" style="margin-left: 10px;"><?= form_error('nama_customer') ?></div>
     </div>
     <div class="input-group mt-5">
         <div class="form-outline col-11" style="padding-left: 8%;">
-            <input type="text" id="form1" class="form-control search form-control-lg" placeholder="No Hp" name="telepon" value="<?= $user[0]['telp']; ?>" />
+            <input type="text" id="form1" class="form-control search form-control-lg" placeholder="No Hp" name="telp" value="<?= $user[0]['telp']; ?>" />
+            <div class="text-danger" style="margin-left: 10px;"><?= form_error('telp') ?></div>
         </div>
         <div class="input-group mt-5">
             <div class="form-outline col-11" style="padding-left: 8%;">
                 <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Alamat" name="alamat" value="<?= $user[0]['alamat']; ?>" />
+                <div class="text-danger" style="margin-left: 10px;"><?= form_error('alamat') ?></div>
             </div>
             <div class="input-group mt-5">
                 <div class="form-outline col-11" style="padding-left: 8%;">
-                    <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Mobil yang diminati" name="mobil" value="<?= $user[0]['unit_minat']; ?>" />
+                    <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Mobil yang diminati" name="unit_minat" value="<?= $user[0]['unit_minat']; ?>" />
+                    <div class="text-danger" style="margin-left: 10px;"><?= form_error('unit_minat') ?></div>
                 </div>
 
 

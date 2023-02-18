@@ -7,6 +7,7 @@ class Master extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('form_validation');
         $this->page_data['page']->title = 'Master Management';
         $this->page_data['page']->menu = 'master';
         $this->load->model('Master_model', 'master');
@@ -26,7 +27,7 @@ class Master extends MY_Controller
 
         $this->load->view('templates/header');
         $this->load->view('tampilan/listProspect', $this->page_data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_i');
     }
 
     public function viewAddPros()
@@ -35,7 +36,7 @@ class Master extends MY_Controller
 
         $this->load->view('templates/header');
         $this->load->view('tampilan/input', $this->page_data);
-        $this->load->view('templates/footer');
+        $this->load->view('templates/footer_i');
     }
 
     public function viewEditPros($id)
@@ -50,12 +51,23 @@ class Master extends MY_Controller
     public function addProspect()
     {
 
+        $this->form_validation->set_rules('nama_customer', 'Nama Customer', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('telp', 'Telepon', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('unit_minat', 'Unit Mobil', 'trim|required|xss_clean');
+
+        $this->load->view('templates/header');
+        if ($this->form_validation->run() == FALSE) {
+            return $this->load->view('tampilan/input');
+        }
+        $this->load->view('templates/footer_i');
+
         $data = array(
             'id_user' => logged('id'),
             'nama_customer' => post('nama_customer'),
-            'telp' => post('telepon'),
+            'telp' => post('telp'),
             'alamat' => post('alamat'),
-            'unit_minat' => post('mobil'),
+            'unit_minat' => post('unit_minat'),
             'sts' => 'Waiting',
             'create_at' => time(),
             'tgl_dibuat' => date('Y-m-d'),
@@ -74,13 +86,24 @@ class Master extends MY_Controller
 
     public function updateProspect($id)
     {
+        $this->form_validation->set_rules('nama_customer', 'Nama Customer', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('telp', 'Telepon', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('unit_minat', 'Unit Mobil', 'trim|required|xss_clean');
+
+        $this->page_data['user'] = $this->master->getUser($id);
+        $this->load->view('templates/header');
+        if ($this->form_validation->run() == FALSE) {
+            return $this->load->view('tampilan/edit_pros', $this->page_data);
+        }
+        $this->load->view('templates/footer_i');
 
         $data = array(
             'id_user' => logged('id'),
             'nama_customer' => post('nama_customer'),
-            'telp' => post('telepon'),
+            'telp' => post('telp'),
             'alamat' => post('alamat'),
-            'unit_minat' => post('mobil'),
+            'unit_minat' => post('unit_minat'),
             'sts' => 'Waiting',
             'update_at' => time()
         );
@@ -165,7 +188,7 @@ class Master extends MY_Controller
             redirect('master/rewardList', 'refresh');
             return true;
         } else {
-            
+
             $data = array(
                 'id_user' => logged('id'),
                 'id_reward' => post('idItem'),
@@ -178,7 +201,7 @@ class Master extends MY_Controller
             $this->master->addData('db_reedem', $data);
             $this->master->updateData('db_user', $totalPoint, $userId);
 
-            $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang ' . $getItemName . ' sebanyak ' . $getItemPoint.' point');
+            $this->activity_model->add('Berhasil Melakukan Reedem Point Dengan Barang ' . $getItemName . ' sebanyak ' . $getItemPoint . ' point');
 
             $this->session->set_flashdata('alert-type', 'success');
             $this->session->set_flashdata('alert', 'Selamat, anda berhasil menukarkan point anda!');

@@ -18,22 +18,27 @@
 <!-- end of heading -->
 
 <!-- search -->
+
 <?php echo form_open('master/addProspect', ['method' => 'POST', 'autocomplete' => 'off']); ?>
 <div class="input-group mt-4">
    <div class="form-outline col-11" style="padding-left: 8%;">
-      <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Nama Customer" name="nama_customer" />
+      <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Nama Customer" name="nama_customer" value="<?= $this->input->post('nama_customer'); ?>" />
+      <div class="text-danger" style="margin-left: 10px;"><?= form_error('nama_customer') ?></div>
    </div>
    <div class="input-group mt-5">
       <div class="form-outline col-11" style="padding-left: 8%;">
-         <input type="text" id="form1" class="form-control search form-control-lg" placeholder="No Hp" name="telepon" />
+         <input type="text" id="form1" class="form-control search form-control-lg" placeholder="No Hp" name="telp" value="<?= $this->input->post('telp'); ?>" />
+         <div class="text-danger" style="margin-left: 10px;"><?= form_error('telp') ?></div>
       </div>
       <div class="input-group mt-5">
          <div class="form-outline col-11" style="padding-left: 8%;">
-            <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Alamat" name="alamat" />
+            <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Alamat" name="alamat" value="<?= $this->input->post('alamat'); ?>" />
+            <div class="text-danger" style="margin-left: 10px;"><?= form_error('alamat') ?></div>
          </div>
          <div class="input-group mt-5">
             <div class="form-outline col-11" style="padding-left: 8%;">
-               <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Mobil yang diminati" name="mobil" />
+               <input type="text" id="form1" class="form-control search form-control-lg" placeholder="Mobil yang diminati" name="unit_minat" value="<?= $this->input->post('unit_minat'); ?>" />
+               <div class="text-danger" style="margin-left: 10px;"><?= form_error('unit_minat') ?></div>
             </div>
 
 
