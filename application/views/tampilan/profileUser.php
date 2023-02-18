@@ -94,20 +94,20 @@
     <img id="loader-gif" src="assets/img/images/loader2.gif" alt="">
   </div>
 
+  <div class="input-group mt-5" style="position: absolute; top: 100px">
+    <div class="form-outline col-11" style="padding-left: 59%;">
+      <form method="post">
+        <label for="upload_image" class="btn btn-light btn-sm"><span class="fas fa-image"></span></label>
+        <input type="file" name="crop_image" class="form-control search form-control-xs crop_image" id="upload_image" style="display:none" />
+      </form>
+    </div>
+  </div>
+  <br>
+
   <div class="text-center mt-4">
     <img src="<?= base_url('uploads/users/' . $User[0]['id'] . '.png'); ?>" alt="" class="profile-picture">
     <h1 style="color: white;" class="profile-name"><?= $User[0]['nama_lengkap'] ?></h1>
     <h6 style="color: white;" class="profile-email"><?= $User[0]['email'] ?></h6>
-  </div>
-  <br>
-
-  <div class="input-group mt-5" style="position: absolute; top: 70px; left:100px">
-    <div class="form-outline col-11" style="padding-left: 8%;">
-      <form method="post">
-        <label for="upload_image" class="btn btn-light"><span class="fas fa-image"></span></label>
-        <input type="file" name="crop_image" class="form-control search form-control-xs crop_image" id="upload_image" style="display:none" />
-      </form>
-    </div>
   </div>
   <br>
 

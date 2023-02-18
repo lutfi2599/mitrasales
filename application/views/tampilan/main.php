@@ -7,9 +7,7 @@
     <div class="col-6 mt-4 ms-5">
       <!-- <h3 class="prospect-title">Home</h3> -->
     </div>
-    <div class="col-4 mt-3 ">
-      <a href="<?= url('users/viewEditUser/' . logged('id')) ?>"><img src="<?= base_url('uploads/users/' . logged('id') . '.png'); ?>" alt="" class="user-picture mb-5"></a>
-    </div>
+    <a href="<?= url('users/viewEditUser/' . logged('id')) ?>" style="float: right; text-align: right;"><img src="<?= base_url('uploads/users/' . logged('id') . '.png'); ?>" alt="" class="user-picture mb-5"></a>
   </div>
 </div>
 
